@@ -24,6 +24,10 @@ public class Student {
     this.remark = remark;
   }
 
+  public String getStudentName() {
+    return this.studentName;
+  }
+
   @Override
   public String toString() {
     return "受講生ID：" + this.studentId

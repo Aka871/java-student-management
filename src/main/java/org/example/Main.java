@@ -8,7 +8,7 @@ public class Main {
 
   public static void main(String[] args) {
     List<Student> students = new ArrayList<>();
-    
+
 // インスタンスが作られた時点で、studentIdは作られているので、コンストラクタの引数で渡す必要はない
     students.add(new Student(
         "山田太郎",
@@ -30,9 +30,33 @@ public class Main {
 // System.out.println(students.toString()); という書き方もできるが、受講生一覧表示ならfor文の方が見やすく、自然。
 // println() にオブジェクトを渡すと、内部的にそのオブジェクトの toString() が使われる。
 // System.out.println(student.toString());のtoString()は省略できるが、今は勉強のため書いておく。
-
+    System.out.println("-----すべての受講生の情報を表示します-----");
     for (Student student : students) {
       System.out.println(student.toString());
+    }
+
+    String searchStudentName = "佐藤一郎";
+    searchStudentByName(students, searchStudentName);
+  }
+
+  // 受講生の名前で検索するメソッド
+  // 特定のインスタンスの情報に依存しない処理のため、staticメソッド
+  public static void searchStudentByName(List<Student> students, String searchStudentName) {
+
+    boolean foundStudent = false;
+
+    for (Student student : students) {
+      if (student.getStudentName().equals(searchStudentName)) {
+        foundStudent = true;
+        System.out.println("-----" +
+            searchStudentName + "さんが見つかりました。情報を表示します-----");
+        System.out.println(student.toString());
+      }
+    }
+
+// !foundStudentは、foundStudent == falseと同じ意味
+    if (!foundStudent) {
+      System.out.println("-----" + searchStudentName + "さんは、見つかりませんでした-----");
     }
   }
 }
