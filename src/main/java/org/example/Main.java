@@ -35,8 +35,10 @@ public class Main {
       System.out.println(student.toString());
     }
 
-    String searchStudentName = "佐藤一郎";
+    String searchStudentName = "山田太郎";
     searchStudentByName(students, searchStudentName);
+
+    updateCourseName(students, searchStudentName);
   }
 
   // 受講生の名前で検索するメソッド
@@ -57,6 +59,24 @@ public class Main {
 // !foundStudentは、foundStudent == falseと同じ意味
     if (!foundStudent) {
       System.out.println("-----" + searchStudentName + "さんは、見つかりませんでした-----");
+    }
+  }
+
+  // 受講生の受講コースの更新処理
+  // ここでは、受講コース名をAWSコースに変更という固定で作ってみる
+  public static void updateCourseName(List<Student> students, String searchStudentName) {
+
+    for (Student student : students) {
+      if (student.getStudentName().equals(searchStudentName)) {
+
+        String beforeChangedCourseName = student.getCourseName();
+
+        student.setCourseName("AWSコース");
+
+        System.out.println("-----" + searchStudentName + "さんの受講コースを変更しました。変更前："
+            + beforeChangedCourseName
+            + " → 変更後：AWSコース-----");
+      }
     }
   }
 }
