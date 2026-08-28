@@ -28,6 +28,34 @@ public class Student {
     return this.studentName;
   }
 
+  public String getCourseName() {
+    return this.courseName;
+  }
+
+  public void setStudentName(String studentName) {
+    this.studentName = studentName;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+  }
+
+  public void setCourseName(String courseName) {
+    this.courseName = courseName;
+  }
+
+  public void setCourseStartDate(LocalDate courseStartDate) {
+    this.courseStartDate = courseStartDate;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
   @Override
   public String toString() {
     return "受講生ID：" + this.studentId
