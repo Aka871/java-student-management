@@ -30,24 +30,27 @@ public class Main {
 // System.out.println(students.toString()); という書き方もできるが、受講生一覧表示ならfor文の方が見やすく、自然。
 // println() にオブジェクトを渡すと、内部的にそのオブジェクトの toString() が使われる。
 // System.out.println(student.toString());のtoString()は省略できるが、今は勉強のため書いておく。
-    System.out.println("-----すべての受講生の情報を表示します-----");
+    System.out.println("\n===== 受講生一覧 =====");
     for (Student student : students) {
       System.out.println(student.toString());
     }
 
+    System.out.println("\n===== 名前検索 =====");
     String searchStudentName = "山田太郎";
     searchStudentByName(students, searchStudentName);
 
+    System.out.println("\n===== 受講コース更新 =====");
     updateCourseName(students, searchStudentName);
 
-    System.out.println("-----すべての受講生の情報を表示します-----");
+    System.out.println("\n===== 更新後の受講生一覧 =====");
     for (Student student : students) {
       System.out.println(student.toString());
     }
 
+    System.out.println("\n===== 受講生削除 =====");
     deleteStudent(students, searchStudentName);
 
-    System.out.println("-----すべての受講生の情報を表示します-----");
+    System.out.println("\n===== 削除後の受講生一覧 =====");
     for (Student student : students) {
       System.out.println(student.toString());
     }
@@ -115,7 +118,8 @@ public class Main {
           "-----" + searchStudentName + "さんを削除しました-----\n削除した受講生 → "
               + studentToDelete.toString());
     } else {
-      System.out.println("-----" + searchStudentName + "さんは、見つかりませんでした-----");
+      System.out.println(
+          "-----削除できませんでした。" + searchStudentName + "さんは、見つかりませんでした-----");
     }
   }
 }
