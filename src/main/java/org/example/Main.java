@@ -78,8 +78,11 @@ public class Main {
   // ここでは、受講コース名をAWSコースに変更という固定で作ってみる
   public static void updateCourseName(List<Student> students, String searchStudentName) {
 
+    boolean foundStudent = false;
+
     for (Student student : students) {
       if (student.getStudentName().equals(searchStudentName)) {
+        foundStudent = true;
 
         String beforeChangedCourseName = student.getCourseName();
 
@@ -89,6 +92,10 @@ public class Main {
             + beforeChangedCourseName
             + " → 変更後：AWSコース-----");
       }
+    }
+    if (!foundStudent) {
+      System.out.println(
+          "-----更新できませんでした。" + searchStudentName + "さんは、見つかりませんでした-----");
     }
   }
 
