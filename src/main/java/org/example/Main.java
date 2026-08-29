@@ -39,6 +39,18 @@ public class Main {
     searchStudentByName(students, searchStudentName);
 
     updateCourseName(students, searchStudentName);
+
+    System.out.println("-----すべての受講生の情報を表示します-----");
+    for (Student student : students) {
+      System.out.println(student.toString());
+    }
+
+    deleteStudent(students, searchStudentName);
+
+    System.out.println("-----すべての受講生の情報を表示します-----");
+    for (Student student : students) {
+      System.out.println(student.toString());
+    }
   }
 
   // 受講生の名前で検索するメソッド
@@ -77,6 +89,26 @@ public class Main {
             + beforeChangedCourseName
             + " → 変更後：AWSコース-----");
       }
+    }
+  }
+
+  // 受講生の情報の削除処理
+  public static void deleteStudent(List<Student> students, String searchStudentName) {
+    Student studentToDelete = null;
+
+    for (Student student : students) {
+      if (student.getStudentName().equals(searchStudentName)) {
+        studentToDelete = student;
+      }
+    }
+    if (studentToDelete != null) {
+      students.remove(studentToDelete);
+
+      System.out.println(
+          "-----" + searchStudentName + "さんを削除しました-----\n削除した受講生 → "
+              + studentToDelete.toString());
+    } else {
+      System.out.println("-----" + searchStudentName + "さんは、見つかりませんでした-----");
     }
   }
 }
