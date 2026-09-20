@@ -31,9 +31,7 @@ public class Main {
 // println() にオブジェクトを渡すと、内部的にそのオブジェクトの toString() が使われる。
 // System.out.println(student.toString());のtoString()は省略できるが、今は勉強のため書いておく。
     System.out.println("\n===== 受講生一覧 =====");
-    for (Student student : students) {
-      System.out.println(student.toString());
-    }
+    printStudents(students);
 
     System.out.println("\n===== 名前検索 =====");
     String searchStudentName = "山田太郎";
@@ -43,17 +41,13 @@ public class Main {
     updateCourseName(students, searchStudentName);
 
     System.out.println("\n===== 更新後の受講生一覧 =====");
-    for (Student student : students) {
-      System.out.println(student.toString());
-    }
+    printStudents(students);
 
     System.out.println("\n===== 受講生削除 =====");
     deleteStudent(students, searchStudentName);
 
     System.out.println("\n===== 削除後の受講生一覧 =====");
-    for (Student student : students) {
-      System.out.println(student.toString());
-    }
+    printStudents(students);
   }
 
   // 受講生の名前で検索するメソッド
@@ -120,6 +114,13 @@ public class Main {
     } else {
       System.out.println(
           "-----削除できませんでした。" + searchStudentName + "さんは、見つかりませんでした-----");
+    }
+  }
+
+  // 受講生の一覧を表示するメソッド
+  public static void printStudents(List<Student> students) {
+    for (Student student : students) {
+      System.out.println(student.toString());
     }
   }
 }
